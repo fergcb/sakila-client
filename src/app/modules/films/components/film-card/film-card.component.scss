@@ -1,0 +1,27 @@
+:host {
+  width: 100%;
+}
+
+a {
+  display: contents;
+}
+
+.film-card {
+  display: flex;
+  gap: 1rem;
+  padding: 1rem;
+
+  &:hover {
+    background-color: rgba(0, 0, 0, 0.2);
+  }
+
+  img {
+    width: 96px;
+    height: 96px;
+    background-color: lightgrey;
+  }
+
+  .details {
+    max-width: 62ch;
+  }
+}

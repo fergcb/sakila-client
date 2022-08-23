@@ -1,0 +1,14 @@
+<app-page>
+  <header>
+    <h1>
+      Actors
+      <app-spinner *ngIf="!doneLoading"></app-spinner>
+    </h1>
+    <app-searchbox [searchQuery]="search" (search)="onSearch($event)"></app-searchbox>
+  </header>
+  <section>
+    <app-paginator [page]="page" [disabled]="!doneLoading" (prev)="fetchPrevious()" (next)="fetchNext()"></app-paginator>
+    <app-actor-list [actors]="actors"></app-actor-list>
+    <app-paginator [page]="page" [disabled]="!doneLoading" (prev)="fetchPrevious()" (next)="fetchNext()"></app-paginator>
+  </section>
+</app-page>

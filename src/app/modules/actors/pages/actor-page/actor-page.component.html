@@ -1,0 +1,11 @@
+<app-page>
+  <header>
+    <h1>{{actor.fullName}}</h1>
+  </header>
+  <section>
+    <h2>Filmography</h2>
+    <article *ngFor="let film of actor.films">
+      {{film.title}} ({{film.releaseYear}})
+    </article>
+  </section>
+</app-page>

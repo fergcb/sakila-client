@@ -1,0 +1,6 @@
+<form (submit)="onSearch($event)">
+  <input type="text" name="searchQuery" [(ngModel)]="searchQuery"/>
+  <button type="submit" class="icon">
+    <fa-icon [icon]="searchIcon"></fa-icon>
+  </button>
+</form>

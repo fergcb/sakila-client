@@ -1,0 +1,10 @@
+<div class="page-picker">
+  <button class="prev" (click)="onClickPrev($event)" [disabled]="disabled || !page.hasPrevious">&lt;</button>
+  <span class="current-page" *ngIf="page">{{ page.number + 1 }}</span>
+  <span class="slash">/</span>
+  <span class="page-count" *ngIf="page">{{ page.totalPageCount }}</span>
+  <button class="next" (click)="onClickNext($event)" [disabled]="disabled || !page.hasNext">&gt;</button>
+</div>
+<div class="page-info" *ngIf="page">
+  <span>Showing items {{page.firstItem}}-{{page.lastItem}} of {{page.totalItemCount}}</span>
+</div>

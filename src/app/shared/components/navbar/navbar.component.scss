@@ -1,0 +1,48 @@
+:host {
+  width: 100%;
+}
+
+nav {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  background-color: black;
+  color: white;
+  margin: 0 auto;
+
+  .nav-brand a {
+    font-size: 2rem;
+    font-family: var(--font-title);
+    font-weight: bold;
+    margin-left: 0.5rem;
+    margin-block: 0.25rem;
+    color: currentColor;
+    text-decoration: none;
+  }
+
+  ul {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    margin-inline: auto;
+
+    li {
+      list-style: none;
+
+      a {
+        display: block;
+        padding: 0.25rem 0.5rem;
+        color: lightgrey;
+        text-decoration: none;
+        transition: filter 200ms;
+        border-bottom: 2px solid transparent;
+        
+        &:hover {
+          filter: brightness(140%);
+          border-color: white;
+        }
+      }
+    }
+  }
+}

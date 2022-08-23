@@ -1,0 +1,11 @@
+<a href="/actors/{{actor.actorId}}">
+  <div class="film-card">
+    <img src="https://picsum.photos/seed/{{actor.actorId}}/96"/>
+    <div class="details">
+      <h3 class="title">{{ actor.fullName }}</h3>
+      <div class="stats">
+        <span class="credits">Appears in {{ actor.films.length }} films.</span>
+      </div>
+    </div>
+  </div>
+</a>

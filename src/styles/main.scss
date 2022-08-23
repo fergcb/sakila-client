@@ -1,0 +1,26 @@
+@forward "./fonts";
+
+@use "./elements/button.scss";
+
+:root {
+  --font-body: 'Noto Sans', sans-serif;
+  --font-title: 'Kanit', sans-serif;
+}
+
+html, body {
+  font-family: var(--font-body);
+}
+
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+  color: currentColor;
+}
