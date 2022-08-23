@@ -1,0 +1,15 @@
+.form-group {
+  label {
+    display: block;
+    font-weight: 600;
+    font-size: 0.85rem;
+  }
+
+  input {
+    display: block;
+  }
+
+  & + & {
+    margin-top: 1rem;
+  }
+}

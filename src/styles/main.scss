@@ -1,6 +1,7 @@
-@forward "./fonts";
+@forward "fonts";
 
-@use "./elements/button.scss";
+@use "elements";
+@use "components";
 
 :root {
   --font-body: 'Noto Sans', sans-serif;
