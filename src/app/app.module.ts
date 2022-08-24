@@ -6,6 +6,7 @@ import { AppRoutingModule } from './app-routing.module'
 import { AppComponent } from './app.component'
 import { ActorsModule } from './modules/actors/actors.module'
 import { FilmsModule } from './modules/films/films.module'
+import { UserModule } from './modules/user/user.module'
 import { SharedModule } from './shared/shared.module'
 
 @NgModule({
@@ -19,6 +20,7 @@ import { SharedModule } from './shared/shared.module'
     SharedModule,
     FilmsModule,
     ActorsModule,
+    UserModule,
   ],
   bootstrap: [AppComponent],
 })

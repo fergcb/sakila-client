@@ -8,6 +8,7 @@ import { PageComponent } from './components/page/page.component'
 import { PaginatorComponent } from './components/paginator/paginator.component'
 import { SearchboxComponent } from './components/searchbox/searchbox.component'
 import { SpinnerComponent } from './components/spinner/spinner.component'
+import { UserControlsComponent } from './components/user-controls/user-controls.component'
 
 @NgModule({
   declarations: [
@@ -16,6 +17,7 @@ import { SpinnerComponent } from './components/spinner/spinner.component'
     PaginatorComponent,
     SearchboxComponent,
     SpinnerComponent,
+    UserControlsComponent,
   ],
   imports: [
     CommonModule,
@@ -28,6 +30,7 @@ import { SpinnerComponent } from './components/spinner/spinner.component'
     PaginatorComponent,
     SearchboxComponent,
     SpinnerComponent,
+    UserControlsComponent,
   ],
 })
 export class SharedModule { }

@@ -1,0 +1,32 @@
+:host {
+  height: 3rem;
+  position: relative;
+}
+
+button, a.btn {
+  height: 100%;
+  font-weight: 600;
+
+  &.signin {
+    color: gold;
+  }
+}
+
+.actions {
+  display: none;
+  flex-direction: column;
+  gap: 0.25rem;
+  padding: 0.5rem;
+  background: lightgrey;
+  position: absolute;
+  right: 0.25rem;
+  top: 3.25rem;
+
+  :host:focus-within & {
+    display: flex;
+  }
+
+  button {
+    padding: 0.5rem;
+  }
+}
