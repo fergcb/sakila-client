@@ -3,6 +3,7 @@ button, a.btn {
   background-color: black;
   color: white;
   font-weight: 800;
+  font-size: 1em;
   cursor: pointer;
 
   height: 30px;
@@ -24,7 +25,8 @@ button, a.btn {
   }
 }
 
-button.icon {
+button.icon,
+a.btn.icon {
   width: 30px;
   padding: 0;
 
