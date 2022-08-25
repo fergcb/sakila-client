@@ -6,6 +6,7 @@ import { AppRoutingModule } from './app-routing.module'
 import { AppComponent } from './app.component'
 import { ActorsModule } from './modules/actors/actors.module'
 import { FilmsModule } from './modules/films/films.module'
+import { HomeModule } from './modules/home/home.module'
 import { UserModule } from './modules/user/user.module'
 import { SharedModule } from './shared/shared.module'
 
@@ -21,6 +22,7 @@ import { SharedModule } from './shared/shared.module'
     FilmsModule,
     ActorsModule,
     UserModule,
+    HomeModule,
   ],
   bootstrap: [AppComponent],
 })
