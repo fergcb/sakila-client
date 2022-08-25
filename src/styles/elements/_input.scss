@@ -1,5 +1,7 @@
 input[type="text"],
-input[type="password"] {
+input[type="password"],
+input[type="number"],
+textarea {
   border: 2px solid black;
   padding: 0.125rem 0.25rem;
   font-family: var(--font-body);
@@ -9,4 +11,8 @@ input[type="password"] {
     outline: none;
     border-color: firebrick;
   }
+}
+
+textarea {
+  width: 100%;
 }

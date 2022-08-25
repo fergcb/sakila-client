@@ -3,16 +3,18 @@ button, a.btn {
   background-color: black;
   color: white;
   font-weight: 800;
-  font-size: 1em;
+  font-size: 1rem;
   cursor: pointer;
-
+  
+  width: fit-content;
   height: 30px;
-  padding-inline: 0.5rem;
+  padding-inline: 1rem;
 
-  display: flex;
+  display: inline-flex;
   gap: 0.25rem;
   justify-content: center;
   align-items: center;
+  vertical-align: middle;
 
   &:hover {
     background-color: #444;
