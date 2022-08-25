@@ -1,7 +1,26 @@
 :host {
   display: block;
   padding: 0.5rem;
-  background: pink;
-  border: 2px solid firebrick;
   margin-block: 1rem;
+  border: 2px solid currentColor;
+
+  &[type="info"] {
+    background: paleturquoise;
+    color: darkblue;
+  }
+
+  &[type="success"] {
+    background: palegreen;
+    color: darkgreen;
+  }
+
+  &[type="warn"] {
+    background: palegoldenrod;
+    color: darkgoldenrod;
+  }
+
+  &[type="danger"] {
+    background: pink;
+    color: firebrick;
+  }
 }
