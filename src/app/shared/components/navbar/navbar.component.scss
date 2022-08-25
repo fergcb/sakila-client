@@ -1,5 +1,6 @@
 :host {
   width: 100%;
+  background-color: black;
 }
 
 nav {
@@ -7,15 +8,15 @@ nav {
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  background-color: black;
   color: white;
   margin: 0 auto;
+  max-width: 1440px;
 
   .nav-brand a {
     font-size: 2rem;
     font-family: var(--font-title);
     font-weight: bold;
-    margin-left: 0.5rem;
+    margin-left: 1rem;
     margin-block: 0.25rem;
     color: currentColor;
     text-decoration: none;
