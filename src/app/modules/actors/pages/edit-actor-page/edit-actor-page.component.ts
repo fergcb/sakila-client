@@ -78,7 +78,7 @@ export class EditActorPageComponent implements OnInit {
     this.success = null
 
     this.actorService
-      .deleteFilm(this.actor.actorId)
+      .deleteActor(this.actor.actorId)
       .pipe(this.handleError('delete'))
       .subscribe(err => {
         if (err !== null) return

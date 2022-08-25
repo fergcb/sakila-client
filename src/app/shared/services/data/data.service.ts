@@ -15,6 +15,16 @@ export class DataService {
     private readonly userService: UserService,
   ) { }
 
+  create <T>(resource: string, body: Partial<T>): Observable<T> {
+    const url = this.resolveUrl(resource)
+    if (this.userService.isLoggedIn()) {
+      return this.http.post<T>(url, body, {
+        headers: this.getAuthHeaders(),
+      })
+    }
+    return throwError(() => new HttpErrorResponse({ status: 403 }))
+  }
+
   get <T>(resource: string, params: {[key: string]: any} = {}): Observable<T> {
     const url = this.resolveUrl(resource)
     return this.http.get<T>(url, { params })

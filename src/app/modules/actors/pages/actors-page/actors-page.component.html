@@ -3,6 +3,9 @@
     <h1>
       Actors
       <app-spinner *ngIf="!doneLoading"></app-spinner>
+      <a class="btn icon" *ngIf="adminMode" routerLink="/actors/create">
+        <fa-icon [icon]="createIcon"></fa-icon>
+      </a>
     </h1>
     <app-searchbox [searchQuery]="search ?? ''" (search)="onSearch($event)"></app-searchbox>
   </header>

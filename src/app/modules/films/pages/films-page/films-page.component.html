@@ -3,6 +3,9 @@
     <h1>
       Films
       <app-spinner *ngIf="!doneLoading"></app-spinner>
+      <a class="btn icon" *ngIf="adminMode" routerLink="/films/create">
+        <fa-icon [icon]="createIcon"></fa-icon>
+      </a>
     </h1>
     <app-searchbox [searchQuery]="search ?? ''" (search)="onSearch($event)"></app-searchbox>
   </header>

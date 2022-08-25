@@ -9,9 +9,11 @@ import { EditFilmPageComponent } from './pages/edit-film-page/edit-film-page.com
 import { ReactiveFormsModule } from '@angular/forms'
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome'
 import { RouterModule } from '@angular/router'
+import { CreateFilmPageComponent } from './pages/create-film-page/create-film-page.component'
 
 @NgModule({
   declarations: [
+    CreateFilmPageComponent,
     EditFilmPageComponent,
     FilmPageComponent,
     FilmsPageComponent,

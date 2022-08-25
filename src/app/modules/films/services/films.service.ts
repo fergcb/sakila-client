@@ -3,6 +3,7 @@ import { Observable } from 'rxjs'
 import { DataService } from 'src/app/shared/services/data/data.service'
 import { Film } from '../models/Film'
 import { FilmCollection } from '../models/FilmCollection'
+import { NewFilm } from '../models/NewFilm'
 
 @Injectable({
   providedIn: 'root',
@@ -11,6 +12,10 @@ export class FilmsService {
   constructor (
     private readonly dataService: DataService,
   ) {}
+
+  createFilm (data: NewFilm): Observable<Film> {
+    return this.dataService.create<Film>('/films', data)
+  }
 
   searchFilms (params?: { page?: number, title?: string}): Observable<FilmCollection> {
     return this.dataService.get<FilmCollection>('/films', params)

@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core'
 import { ActivatedRoute, Router } from '@angular/router'
+import { faAdd } from '@fortawesome/free-solid-svg-icons'
+import { UserService } from 'src/app/modules/user/services/user/user.service'
 import { Page } from 'src/app/shared/models/Page'
 import { DataService } from 'src/app/shared/services/data/data.service'
 import { Actor } from '../../models/Actor'
@@ -12,6 +14,8 @@ import { ActorService } from '../../services/actor.service'
   styleUrls: ['./actors-page.component.scss'],
 })
 export class ActorsPageComponent implements OnInit {
+  createIcon = faAdd
+
   public doneLoading: boolean = false
   public actors: Actor[] = []
   public page!: Page
@@ -19,15 +23,21 @@ export class ActorsPageComponent implements OnInit {
   public nextUrl!: string
   public search: string | undefined
   public pageNumber: string | undefined
+  public adminMode: boolean = false
 
   constructor (
     private readonly actorService: ActorService,
     private readonly dataService: DataService,
+    private readonly userService: UserService,
     private readonly route: ActivatedRoute,
     private readonly router: Router,
   ) {}
 
   ngOnInit (): void {
+    this.userService.user$.subscribe(() => {
+      this.adminMode = this.userService.isAdmin()
+    })
+
     this.route.queryParams.subscribe(query => {
       const params: {[key: string]: any} = {}
 
