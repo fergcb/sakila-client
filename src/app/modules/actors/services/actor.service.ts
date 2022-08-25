@@ -23,4 +23,8 @@ export class ActorService {
   updateActor (id: number, data: Partial<Actor>): Observable<null> {
     return this.dataService.update<Actor>(`/actors/${id}`, data)
   }
+
+  deleteFilm (id: number): Observable<null> {
+    return this.dataService.delete(`/actors/${id}`)
+  }
 }

@@ -23,14 +23,28 @@ export class DataService {
   update <T>(resource: string, body: Partial<T>): Observable<null> {
     const url = this.resolveUrl(resource)
     if (this.userService.isLoggedIn()) {
-      const accessToken = this.userService.getAccessToken() as string
       return this.http.patch<null>(url, body, {
-        headers: {
-          Authorization: `Bearer ${accessToken}`,
-        },
+        headers: this.getAuthHeaders(),
       })
     }
     return throwError(() => new HttpErrorResponse({ status: 403 }))
+  }
+
+  delete (resource: string): Observable<null> {
+    const url = this.resolveUrl(resource)
+    if (this.userService.isLoggedIn()) {
+      return this.http.delete<null>(url, {
+        headers: this.getAuthHeaders(),
+      })
+    }
+    return throwError(() => new HttpErrorResponse({ status: 403 }))
+  }
+
+  private getAuthHeaders (): { [header: string]: string } {
+    const accessToken = this.userService.getAccessToken() as string
+    return {
+      Authorization: `Bearer ${accessToken}`,
+    }
   }
 
   private resolveUrl (resource: string): string {

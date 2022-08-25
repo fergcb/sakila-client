@@ -2,7 +2,7 @@ import { HttpErrorResponse } from '@angular/common/http'
 import { Component, Input, OnInit } from '@angular/core'
 import { FormControl, FormGroup } from '@angular/forms'
 import { ActivatedRoute } from '@angular/router'
-import { catchError, of } from 'rxjs'
+import { catchError, of, OperatorFunction } from 'rxjs'
 import { Film } from '../../models/Film'
 import { FilmsService } from '../../services/films.service'
 
@@ -44,6 +44,17 @@ export class EditFilmPageComponent implements OnInit {
       })
   }
 
+  private handleError (action: string): OperatorFunction<unknown, unknown> {
+    return catchError((err: HttpErrorResponse) => {
+      if (err.status === 403) {
+        this.error = `You do not have permission to ${action} this film.`
+      } else if (err.status === 401) {
+        this.error = 'We couldn\'t authorize your request. Make sure you\'re logged in as an administrator and try again.'
+      }
+      return of(err)
+    })
+  }
+
   onSubmit (evt: Event): void {
     evt.preventDefault()
 
@@ -52,17 +63,28 @@ export class EditFilmPageComponent implements OnInit {
 
     this.filmService
       .updateFilm(this.film.filmId, this.form.value)
-      .pipe(catchError((err: HttpErrorResponse) => {
-        if (err.status === 403) {
-          this.error = 'You do not have permission to edit this film.'
-        } else if (err.status === 401) {
-          this.error = 'We couldn\'t authorize your request. Make sure you\'re logged in as an administrator and try again.'
-        }
-        return of(err)
-      }))
-      .subscribe((err) => {
+      .pipe(this.handleError('update'))
+      .subscribe(err => {
         if (err !== null) return
         this.success = 'Your changes have been saved.'
+      })
+  }
+
+  onDelete (evt: Event): void {
+    evt.preventDefault()
+
+    const confirmed = window.confirm('Are you sure you want to delete this film?\n\nThis action cannot be undone.')
+    if (!confirmed) return
+
+    this.error = null
+    this.success = null
+
+    this.filmService
+      .deleteFilm(this.film.filmId)
+      .pipe(this.handleError('delete'))
+      .subscribe(err => {
+        if (err !== null) return
+        this.success = 'This film has been deleted.'
       })
   }
 }
