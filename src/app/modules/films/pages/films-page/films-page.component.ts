@@ -17,7 +17,8 @@ export class FilmsPageComponent implements OnInit {
   public page!: Page
   public prevUrl!: string
   public nextUrl!: string
-  public search!: string
+  public search: string | undefined
+  public pageNumber: string | undefined
 
   constructor (
     private readonly filmsService: FilmsService,
@@ -35,12 +36,17 @@ export class FilmsPageComponent implements OnInit {
       if (searchQuery !== undefined) {
         params['title'] = searchQuery
         this.search = searchQuery
+      } else {
+        this.search = undefined
       }
 
-      const page = query['page'] as number - 1
-      if (page === this.page?.number) return
-      if (this.page !== undefined) {
-        params['page'] = page
+      const pageNumber = query['page']
+      if (pageNumber !== undefined && pageNumber === this.pageNumber) return
+      if (pageNumber !== undefined) {
+        this.pageNumber = pageNumber
+        params['page'] = parseInt(pageNumber, 10) - 1
+      } else {
+        this.pageNumber = undefined
       }
 
       this.filmsService
