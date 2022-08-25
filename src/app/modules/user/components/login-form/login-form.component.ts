@@ -45,9 +45,10 @@ export class LoginFormComponent {
         if (user === null) return
         const redirect = this.route.snapshot.queryParams['redirect'] as string
         if (typeof redirect === 'string' && redirect !== '') {
-          void this.router.navigate([redirect])
+          const path = decodeURI(redirect)
+          void this.router.navigateByUrl(path)
         } else {
-          void this.router.navigate(['/films'])
+          void this.router.navigate(['/'])
         }
       })
   }

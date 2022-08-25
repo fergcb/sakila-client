@@ -9,6 +9,6 @@
   </button>
 </ul>
 
-<a class="btn signin" *ngIf="!loggedIn" routerLink="/login">
+<a class="btn signin" *ngIf="!loggedIn" routerLink="/login" [queryParams]="redirectParams">
   Sign-in
 </a>

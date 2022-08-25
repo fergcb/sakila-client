@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core'
+import { Params, Router } from '@angular/router'
 import { faRightFromBracket, faUser, faUserLock, IconDefinition } from '@fortawesome/free-solid-svg-icons'
 import { User } from 'src/app/modules/user/models/User'
 import { UserService } from 'src/app/modules/user/services/user/user.service'
@@ -18,6 +19,7 @@ export class UserControlsComponent implements OnInit {
 
   constructor (
     private readonly userService: UserService,
+    private readonly router: Router,
   ) {}
 
   ngOnInit (): void {
@@ -29,6 +31,10 @@ export class UserControlsComponent implements OnInit {
 
   get loggedIn (): boolean {
     return this.user !== null
+  }
+
+  get redirectParams (): Params {
+    return { redirect: this.router.url }
   }
 
   onLogout (): void {
