@@ -3,6 +3,7 @@
     <h1>Login</h1>
   </header>
   <section>
-    <app-login-form></app-login-form>
+    <app-alert *ngIf="error !== null" [message]="error"></app-alert>
+    <app-login-form (loginError)="onError($event)"></app-login-form>
   </section>
 </app-page>

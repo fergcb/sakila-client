@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http'
 import { Injectable } from '@angular/core'
-import { Observable } from 'rxjs'
+import { catchError, Observable, of } from 'rxjs'
 import { environment } from 'src/environments/environment'
 import { SessionDetails } from '../../models/SessionDetails'
 import { User } from '../../models/User'
@@ -71,9 +71,22 @@ export class UserService {
       this.http.post<SessionDetails>(this.baseURL + '/sessions/login', {
         username,
         password,
-      }).subscribe(session => {
+      }).pipe(catchError(err => {
+        console.log(err)
+        observer.error(err)
+        observer.complete()
+        return of(null)
+      })).subscribe(session => {
+        if (session === null) return
         this.getUserInfo(session)
+          .pipe(catchError(err => {
+            console.log(err)
+            observer.error(err)
+            observer.complete()
+            return of(null)
+          }))
           .subscribe(user => {
+            if (user === null) return
             this.saveSession(session)
             this.session = session
             this.loggedIn = true

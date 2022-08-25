@@ -1,6 +1,7 @@
-import { Component } from '@angular/core'
+import { Component, EventEmitter, Output } from '@angular/core'
 import { FormControl, FormGroup } from '@angular/forms'
 import { ActivatedRoute, Router } from '@angular/router'
+import { catchError, of } from 'rxjs'
 import { UserService } from '../../services/user/user.service'
 
 @Component({
@@ -9,6 +10,8 @@ import { UserService } from '../../services/user/user.service'
   styleUrls: ['./login-form.component.scss'],
 })
 export class LoginFormComponent {
+  @Output() loginError = new EventEmitter<string>()
+
   form = new FormGroup<{
     username: FormControl<string | null>
     password: FormControl<string | null>
@@ -34,7 +37,12 @@ export class LoginFormComponent {
 
     this.userService
       .login(username, password)
+      .pipe(catchError(_ => {
+        this.loginError.emit('Login failed: make sure your username and password are correct.')
+        return of(null)
+      }))
       .subscribe(user => {
+        if (user === null) return
         const redirect = this.route.snapshot.queryParams['redirect'] as string
         if (typeof redirect === 'string' && redirect !== '') {
           void this.router.navigate([redirect])

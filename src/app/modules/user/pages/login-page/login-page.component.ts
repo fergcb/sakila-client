@@ -4,4 +4,10 @@ import { Component } from '@angular/core'
   selector: 'app-login-page',
   templateUrl: 'login-page.component.html',
 })
-export class LoginPageComponent {}
+export class LoginPageComponent {
+  error: string | null = null
+
+  onError (error: string): void {
+    this.error = error
+  }
+}
