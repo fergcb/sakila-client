@@ -1,0 +1,29 @@
+<app-page>
+  <header>
+    <h1 *ngIf="doneLoading">Editing: {{film.title}}</h1>
+  </header>
+  <app-alert *ngIf="error !== null" type="danger" [message]="error"></app-alert>
+  <app-alert *ngIf="success !== null" type="info" [message]="success"></app-alert>
+  <form *ngIf="doneLoading" [formGroup]="form" (submit)="onSubmit($event)">
+    <section>
+      <h2>Film Details</h2>
+      <div class="form-group">
+        <label for="title">Title:</label>
+        <input id="title" formControlName="title" type="text"> 
+      </div>
+      <div class="form-group">
+        <label for="releaseYear">Release year:</label>
+        <input id="releaseYear" formControlName="releaseYear" type="number"> 
+      </div>
+      <div class="form-group">
+        <label for="description">Description:</label>
+        <textarea id="description" formControlName="description" rows="4"></textarea>
+      </div>
+      <button type="submit">Save Changes</button>
+    </section>
+    <section>
+      <h2>Danger Zone</h2>
+      <button type="button" class="danger">Delete Film</button>
+    </section>
+  </form>
+</app-page>

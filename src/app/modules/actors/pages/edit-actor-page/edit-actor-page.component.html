@@ -1,0 +1,25 @@
+<app-page>
+  <header>
+    <h1 *ngIf="doneLoading">Editing: {{actor.fullName}}</h1>
+  </header>
+  <app-alert *ngIf="error !== null" type="danger" [message]="error"></app-alert>
+  <app-alert *ngIf="success !== null" type="info" [message]="success"></app-alert>
+  <form *ngIf="doneLoading" [formGroup]="form" (submit)="onSubmit($event)">
+    <section>
+      <h2>Film Details</h2>
+      <div class="form-group">
+        <label for="firstName">First name:</label>
+        <input id="firstName" formControlName="firstName" type="text"> 
+      </div>
+      <div class="form-group">
+        <label for="lastName">Last name:</label>
+        <input id="lastName" formControlName="lastName" type="text"> 
+      </div>
+      <button type="submit">Save Changes</button>
+    </section>
+    <section>
+      <h2>Danger Zone</h2>
+      <button type="button" class="danger">Delete Film</button>
+    </section>
+  </form>
+</app-page>

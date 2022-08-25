@@ -19,4 +19,8 @@ export class ActorService {
   findActor (id: number): Observable<Actor> {
     return this.dataService.get<Actor>(`/actors/${id}`)
   }
+
+  updateActor (id: number, data: Partial<Actor>): Observable<null> {
+    return this.dataService.update<Actor>(`/actors/${id}`, data)
+  }
 }

@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http'
 import { Injectable } from '@angular/core'
-import { catchError, Observable, of } from 'rxjs'
+import { catchError, Observable, of, Subject } from 'rxjs'
 import { environment } from 'src/environments/environment'
 import { SessionDetails } from '../../models/SessionDetails'
 import { User } from '../../models/User'
@@ -13,7 +13,9 @@ export class UserService {
 
   private loggedIn: boolean = false
   private session: SessionDetails | null = null
-  private user: User | null = null
+  private _user: User | null = null
+  private readonly userSubject: Subject<User | null> = new Subject<User | null>()
+  public readonly user$: Observable<User | null> = this.userSubject.asObservable()
 
   constructor (
     private readonly http: HttpClient,
@@ -23,8 +25,21 @@ export class UserService {
     return this.loggedIn
   }
 
-  getUser (): User | null {
-    return this.user
+  isAdmin (): boolean {
+    return this.loggedIn && this.user?.group === 'ADMIN'
+  }
+
+  get user (): User | null {
+    return this._user
+  }
+
+  set user (value: User | null) {
+    this._user = value
+    this.userSubject.next(this._user)
+  }
+
+  getAccessToken (): string | undefined {
+    return this.session?.accessToken
   }
 
   saveSession (session: SessionDetails): void {

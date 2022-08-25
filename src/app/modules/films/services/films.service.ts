@@ -19,4 +19,8 @@ export class FilmsService {
   findFilm (id: number): Observable<Film> {
     return this.dataService.get<Film>(`/films/${id}`)
   }
+
+  updateFilm (id: number, data: Partial<Film>): Observable<null> {
+    return this.dataService.update<Film>(`/films/${id}`, data)
+  }
 }

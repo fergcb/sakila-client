@@ -1,0 +1,8 @@
+button.danger {
+  background-color: pink;
+  color: firebrick;
+
+  &:hover {
+    filter: brightness(90%) saturate(170%);
+  }
+}
