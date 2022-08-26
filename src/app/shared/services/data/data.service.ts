@@ -58,6 +58,14 @@ export class DataService {
   }
 
   private resolveUrl (resource: string): string {
-    return resource.startsWith('http') ? resource : this.baseURL + resource
+    if (resource.startsWith('https')) {
+      return resource
+    }
+
+    if (resource.startsWith('http')) {
+      return resource.replace(/^http/, 'https')
+    }
+
+    return this.baseURL + resource
   }
 }
