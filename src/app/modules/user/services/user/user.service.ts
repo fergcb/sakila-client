@@ -57,7 +57,9 @@ export class UserService {
   }
 
   getUserInfo (session: SessionDetails): Observable<User> {
-    return this.http.get<User>(session._links.userinfo.href)
+    const link = session._links.userinfo.href
+    const url = link.startsWith('https://') ? link : link.replace(/^http/, 'https')
+    return this.http.get<User>(url)
   }
 
   init (): Observable<User | null> {
