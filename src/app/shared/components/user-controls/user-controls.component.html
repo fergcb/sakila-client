@@ -3,12 +3,12 @@
   {{ user?.username }}
 </button>
 <ul *ngIf="loggedIn" class="actions" [ngClass]="{ visible: showActions }">
-  <button (click)="onLogout()">
+  <button (click)="onLogout()" class="danger">
     <fa-icon [icon]="logoutIcon"></fa-icon>
     Logout
   </button>
 </ul>
 
-<a class="btn signin" *ngIf="!loggedIn" routerLink="/login" [queryParams]="redirectParams">
+<a class="btn warn" *ngIf="!loggedIn" routerLink="/login" [queryParams]="redirectParams">
   Sign-in
 </a>

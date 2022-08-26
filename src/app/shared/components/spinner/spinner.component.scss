@@ -1,3 +1,5 @@
+@use "../../../../styles/theme";
+
 progress {
   -webkit-appearance: none;
      -moz-appearance: none;
@@ -7,14 +9,14 @@ progress {
   vertical-align: middle;
   background: none;
 
-  width: 0.9em;
-  height: 0.9em;
+  width: 1.5rem;
+  height: 1.5rem;
 
   position: relative;
-  top: -0.1em;
+  top: -0.1rem;
 
-  border: 5px solid firebrick;
-  border-left-color: transparent;
+  border: 5px solid theme.$primary;
+  border-left-color: theme.$border-primary;
   border-radius: 50%;
   animation: spin 1s linear infinite;
 

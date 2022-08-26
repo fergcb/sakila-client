@@ -1,6 +1,8 @@
+@use "../../../../styles/theme";
+
 :host {
   width: 100%;
-  background-color: black;
+  background-color: theme.$text-primary;
 }
 
 nav {
@@ -8,9 +10,10 @@ nav {
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  color: white;
+  color: theme.$background-primary;
   margin: 0 auto;
   max-width: 1440px;
+  height: 4rem;
 
   .nav-brand a {
     font-size: 2rem;
@@ -33,15 +36,14 @@ nav {
 
       a {
         display: block;
-        padding: 0.25rem 0.5rem;
-        color: lightgrey;
+        padding: 0.5rem 1rem;
+        color: theme.$background-secondary;
         text-decoration: none;
-        transition: filter 200ms;
-        border-bottom: 2px solid transparent;
+        border-radius: theme.$border-radius-md;
         
         &:hover {
-          filter: brightness(140%);
-          border-color: white;
+          color: theme.$background-primary;
+          background-color: rgba(theme.$primary, 0.3);
         }
       }
     }

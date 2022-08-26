@@ -10,6 +10,7 @@ import { RouterModule } from '@angular/router'
 import { ReactiveFormsModule } from '@angular/forms'
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome'
 import { CreateActorPageComponent } from './pages/create-actor-page/create-actor-page.component'
+import { FilmsModule } from '../films/films.module'
 
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import { CreateActorPageComponent } from './pages/create-actor-page/create-actor
     ReactiveFormsModule,
     RouterModule,
     FontAwesomeModule,
+    FilmsModule,
   ],
 })
 export class ActorsModule {}

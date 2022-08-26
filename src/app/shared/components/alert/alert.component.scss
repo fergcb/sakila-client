@@ -1,26 +1,30 @@
+@use "../../../../styles/theme";
+@use "../../../../styles/colors";
+
 :host {
   display: block;
   padding: 0.5rem;
   margin-block: 1rem;
-  border: 2px solid currentColor;
+  border: theme.$border-width solid currentColor;
+  border-radius: theme.$border-radius-md;
 
   &[type="info"] {
-    background: paleturquoise;
-    color: darkblue;
+    background: colors.$info-light;
+    color: colors.$info-dark;
   }
 
   &[type="success"] {
-    background: palegreen;
-    color: darkgreen;
+    background: colors.$success-light;
+    color: colors.$success-dark;
   }
 
   &[type="warn"] {
-    background: palegoldenrod;
-    color: darkgoldenrod;
+    background: colors.$warn-light;
+    color: colors.$warn-dark;
   }
 
   &[type="danger"] {
-    background: pink;
-    color: firebrick;
+    background: colors.$danger-light;
+    color: colors.$danger-dark;
   }
 }

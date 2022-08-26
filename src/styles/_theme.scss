@@ -1,0 +1,30 @@
+@use "colors";
+@use "fonts";
+
+$background-primary: colors.$light;
+$background-secondary: colors.$grey-light;
+$text-primary: colors.$dark;
+$text-secondary: colors.$grey-dark;
+$border-primary: colors.$grey-mid;
+$border-secondary: colors.$grey-light;
+$primary: colors.$kombu;
+$secondary: colors.$kombu-light;
+
+$border-radius-sm: 0.125rem;
+$border-radius-md: 0.25rem;
+$border-radius-lg: 0.5rem;
+
+$border-width: 1px;
+
+$font-body: fonts.$body;
+$font-title: fonts.$title;
+
+$font-size-sm: 14px;
+$font-size-md: 16px;
+$font-size-lg: 20px;
+$font-size-xl: 32px;
+
+$font-weight-light: 200;
+$font-weight-normal: 400;
+$font-weight-semibold: 600;
+$font-weight-bold: 800;

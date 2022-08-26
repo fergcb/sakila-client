@@ -1,15 +1,12 @@
+@use "../../../../styles/theme";
+
 :host {
-  height: 3rem;
   position: relative;
+  padding-right: 1rem;
 }
 
 button, a.btn {
-  height: 100%;
   font-weight: 600;
-
-  &.signin {
-    color: gold;
-  }
 }
 
 .actions {
@@ -17,16 +14,13 @@ button, a.btn {
   flex-direction: column;
   gap: 0.25rem;
   padding: 0.5rem;
-  background: lightgrey;
+  background: theme.$border-primary;
   position: absolute;
-  right: 0.25rem;
-  top: 3.25rem;
+  right: 0.5rem;
+  top: 3.75rem;
+  border-radius: theme.$border-radius-md;
 
   :host:focus-within & {
     display: flex;
-  }
-
-  button {
-    padding: 0.5rem;
   }
 }

@@ -1,15 +1,13 @@
-@forward "fonts";
+@use "theme";
 
 @use "elements";
 @use "components";
 
-:root {
-  --font-body: 'Noto Sans', sans-serif;
-  --font-title: 'Kanit', sans-serif;
-}
-
 html, body {
-  font-family: var(--font-body);
+  font-family: theme.$font-body;
+  font-weight: theme.$font-weight-normal;
+  font-size: theme.$font-size-md;
+  background-color: theme.$background-primary;
 }
 
 * {

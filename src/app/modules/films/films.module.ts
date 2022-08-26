@@ -10,6 +10,7 @@ import { ReactiveFormsModule } from '@angular/forms'
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome'
 import { RouterModule } from '@angular/router'
 import { CreateFilmPageComponent } from './pages/create-film-page/create-film-page.component'
+import { PartialActorCardComponent } from './components/partial-actor-card/partial-actor-card.component'
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import { CreateFilmPageComponent } from './pages/create-film-page/create-film-pa
     FilmsPageComponent,
     FilmCardComponent,
     FilmListComponent,
+    PartialActorCardComponent,
   ],
   imports: [
     CommonModule,
@@ -26,6 +28,9 @@ import { CreateFilmPageComponent } from './pages/create-film-page/create-film-pa
     ReactiveFormsModule,
     FontAwesomeModule,
     RouterModule,
+  ],
+  exports: [
+    FilmCardComponent,
   ],
 })
 export class FilmsModule {}

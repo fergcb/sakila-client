@@ -13,7 +13,7 @@
   <section *ngIf="doneLoading">
     <h2>Cast</h2>
     <article *ngFor="let actor of film?.cast">
-      {{actor.fullName}}
+      <app-partial-actor-card [actor]="actor"></app-partial-actor-card>
     </article>
   </section>
 </app-page>

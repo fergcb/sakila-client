@@ -10,8 +10,9 @@
   </header>
   <section *ngIf="actor !== null">
     <h2>Filmography</h2>
+    <p>{{actor.fullName}} appears in {{actor.films.length}} films.</p>
     <article *ngFor="let film of actor?.films">
-      {{film.title}} ({{film.releaseYear}})
+      <app-film-card [film]="film"></app-film-card>
     </article>
   </section>
 </app-page>

@@ -1,15 +1,19 @@
+@use "../theme";
+
 input[type="text"],
 input[type="password"],
 input[type="number"],
 textarea {
-  border: 2px solid black;
+  background-color: theme.$background-secondary;
+  border: theme.$border-width solid theme.$border-primary;
+  border-radius: theme.$border-radius-sm;
   padding: 0.125rem 0.25rem;
-  font-family: var(--font-body);
+  font-family: theme.$font-body;
   font-size: 1rem;
 
   &:focus {
     outline: none;
-    border-color: firebrick;
+    border-color: theme.$primary;
   }
 }
 

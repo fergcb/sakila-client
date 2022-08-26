@@ -1,3 +1,5 @@
+@use "../../../../styles/theme";
+
 .page-picker {
   display: flex;
   align-items: center;
@@ -11,12 +13,14 @@
   }
 
   .slash {
-    color: grey;
+    color: theme.$border-primary;
     font-size: 1.5rem;
   }
 }
 
 .page-info {
   text-align: center;
-  font-size: 0.85rem;
+  font-size: theme.$font-size-sm;
+  font-weight: theme.$font-weight-semibold;
+  color: theme.$text-secondary;
 }

@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core'
-import { Film } from '../../models/Film'
+import { PartialFilm } from 'src/app/modules/actors/models/PartialFilm'
 
 @Component({
   selector: 'app-film-card',
@@ -8,5 +8,5 @@ import { Film } from '../../models/Film'
 })
 export class FilmCardComponent {
   @Input()
-  public film!: Film
+  public film!: PartialFilm
 }
