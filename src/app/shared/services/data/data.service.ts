@@ -58,6 +58,6 @@ export class DataService {
   }
 
   private resolveUrl (resource: string): string {
-    return resource.startsWith(this.baseURL) ? resource : this.baseURL + resource
+    return resource.startsWith('http') ? resource : this.baseURL + resource
   }
 }
